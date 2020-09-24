@@ -1067,10 +1067,8 @@ kern_shm_open2(struct thread *td, const char *userpath, int flags, mode_t mode,
 		return (EINVAL);
 
 	largepage = (shmflags & SHM_LARGEPAGE) != 0;
-#if !defined(__amd64__)
-	if (largepage)
+	if (largepage && !PMAP_HAS_LARGEPAGES)
 		return (ENOTTY);
-#endif
 
 	/*
 	 * Currently only F_SEAL_SEAL may be set when creating or opening shmfd.
@@ -1577,7 +1575,7 @@ shm_mmap(struct file *fp, vm_map_t map, vm_offset_t *addr, vm_size_t objsize,
 #ifdef _LP64
 	    objsize > OFF_MAX ||
 #endif
-	    foff < 0 || foff > OFF_MAX - objsize) {
+	    foff > OFF_MAX - objsize) {
 		error = EINVAL;
 		goto out;
 	}
