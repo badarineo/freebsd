@@ -130,6 +130,7 @@ MAN=	aac.4 \
 	ddb.4 \
 	devctl.4 \
 	disc.4 \
+	disk.4 \
 	divert.4 \
 	${_dpms.4} \
 	ds1307.4 \
@@ -249,6 +250,7 @@ MAN=	aac.4 \
 	kld.4 \
 	ksyms.4 \
 	ksz8995ma.4 \
+	ktls.4 \
 	ktr.4 \
 	kue.4 \
 	lagg.4 \
@@ -398,6 +400,7 @@ MAN=	aac.4 \
 	ocs_fc.4\
 	ohci.4 \
 	orm.4 \
+	${_ossl.4} \
 	ow.4 \
 	ow_temp.4 \
 	owc.4 \
@@ -430,6 +433,7 @@ MAN=	aac.4 \
 	pty.4 \
 	puc.4 \
 	pwmc.4 \
+	${_qat.4} \
 	${_qlxge.4} \
 	${_qlxgb.4} \
 	${_qlxgbe.4} \
@@ -443,6 +447,7 @@ MAN=	aac.4 \
 	rl.4 \
 	rndtest.4 \
 	route.4 \
+	rtsx.4 \
 	rtwn.4 \
 	rtwnfw.4 \
 	rtwn_pci.4 \
@@ -524,6 +529,7 @@ MAN=	aac.4 \
 	tap.4 \
 	targ.4 \
 	tcp.4 \
+	tcp_bbr.4 \
 	tdfx.4 \
 	terasic_mtl.4 \
 	termios.4 \
@@ -818,8 +824,10 @@ _ntb_transport.4=ntb_transport.4
 _nvd.4=		nvd.4
 _nvme.4=	nvme.4
 _nvram.4=	nvram.4
+_ossl.4=	ossl.4
 _padlock.4=	padlock.4
 _pchtherm.4=	pchtherm.4
+_qat.4=		qat.4
 _rr232x.4=	rr232x.4
 _speaker.4=	speaker.4
 _spkr.4=	spkr.4

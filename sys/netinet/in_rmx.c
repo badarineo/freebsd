@@ -30,8 +30,6 @@
 #include <sys/cdefs.h>
 __FBSDID("$FreeBSD$");
 
-#include "opt_mpath.h"
-
 #include <sys/param.h>
 #include <sys/systm.h>
 #include <sys/kernel.h>
@@ -127,9 +125,6 @@ in_inithead(uint32_t fibnum)
 		return (NULL);
 
 	rh->rnh_preadd = rib4_preadd;
-#ifdef	RADIX_MPATH
-	rt_mpath_init_rnh(rh);
-#endif
 
 	return (rh);
 }
@@ -183,6 +178,6 @@ in_ifadown(struct ifaddr *ifa, int delete)
 	arg.ifa = ifa;
 	arg.del = delete;
 
-	rt_foreach_fib_walk_del(AF_INET, in_ifadownkill, &arg);
+	rib_foreach_table_walk_del(AF_INET, in_ifadownkill, &arg);
 	ifa->ifa_flags &= ~IFA_ROUTE;		/* XXXlocking? */
 }

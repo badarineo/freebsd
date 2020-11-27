@@ -7,7 +7,8 @@ BINDIR=		${TESTSDIR}
 
 ATF_TESTS_C=	ip_reass_test \
 		so_reuseport_lb_test \
-		socket_afinet
+		socket_afinet \
+		tcp_connect_port_test
 
 ATF_TESTS_SH=	carp fibs fibs_test redirect divert forward output lpm
 TEST_METADATA.output+=	required_programs="python"
@@ -19,7 +20,5 @@ ${PACKAGE}FILES+=		redirect.py
 ${PACKAGE}FILESMODE_redirect.py=0555
 
 MAN=
-
-WARNS?=	6
 
 .include <bsd.test.mk>
